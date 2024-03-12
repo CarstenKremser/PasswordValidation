@@ -56,4 +56,8 @@ public class PasswordValidator {
         }
         return false;
     }
+
+    public static String createRandomSecurePassword() {
+        return "";
+    }
 }

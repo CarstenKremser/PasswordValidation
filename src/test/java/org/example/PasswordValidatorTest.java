@@ -1,6 +1,8 @@
 package org.example;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class PasswordValidatorTest {
@@ -163,5 +165,38 @@ class PasswordValidatorTest {
         boolean result = PasswordValidator.containsSpecialCharacters(password);
 
         Assertions.assertFalse(result);
+    }
+
+    // Test createRandomSecurePassword()
+
+    static String testPassword;
+    @BeforeAll
+    static void createRandomSecurePassword_generatePassword() {
+        testPassword = PasswordValidator.createRandomSecurePassword();
+    }
+
+    @Test
+    void createRandomSecurePassword_generatedPasswordShouldHaveMinimumLength() {
+        Assertions.assertTrue(PasswordValidator.hasMinimumLength(testPassword));
+    }
+
+    @Test
+    void createRandomSecurePassword_generatedPasswordShouldContainDigits() {
+        Assertions.assertTrue(PasswordValidator.containsDigits(testPassword));
+    }
+
+    @Test
+    void createRandomSecurePassword_generatedPasswordShouldHaveUpperAndLowercaseLetters() {
+        Assertions.assertTrue(PasswordValidator.hasUpperAndLowercaseLetters(testPassword));
+    }
+
+    @Test
+    void createRandomSecurePassword_generatedPasswordShouldContainSpecialCharacters() {
+        Assertions.assertTrue(PasswordValidator.containsSpecialCharacters(testPassword));
+    }
+
+    @Test
+    void createRandomSecurePassword_generatedPasswordShouldNotBeCommonlyUsed() {
+        Assertions.assertFalse(PasswordValidator.isCommonlyUsed(testPassword));
     }
 }
