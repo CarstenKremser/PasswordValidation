@@ -1,7 +1,5 @@
 package org.example;
 
-import java.util.concurrent.Callable;
-
 public class PasswordValidator {
 
 
