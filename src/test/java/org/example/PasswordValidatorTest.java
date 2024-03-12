@@ -95,4 +95,15 @@ class PasswordValidatorTest {
 
         Assertions.assertFalse(result);
     }
+
+    // Test isCommonlyUsed
+
+    @Test
+    void isCommonlyUsed_shouldReturnTrue_whenCalledWithPasswort1() {
+        String password = "Passwort1";
+
+        boolean result = PasswordValidator.isCommonlyUsed(password);
+
+        Assertions.assertTrue(result);
+    }
 }
