@@ -44,6 +44,18 @@ public class PasswordValidator {
     }
 
     public static boolean containsSpecialCharacters(String password) {
+        char[] specialChars = {
+                '!', '"', '§', '$', '%', '&', '/', '(', ')',
+                '=', '?', '*', '+', '#', '<', '>', '°', '^',
+                '@', ';', ',', ':', '.', '_', '-', '(', ')',
+                '[', ']', '{', '}', '|', '\\', '~'
+        };
+
+        for (char specialChar: specialChars) {
+            if(password.indexOf(specialChar)>=0) {
+                return true;
+            }
+        }
         return false;
     }
 }
