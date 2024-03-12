@@ -73,6 +73,7 @@ class PasswordValidatorTest {
         Assertions.assertTrue(result);
     }
 
+    @Test
     void hasUpperAndLowercaseLetters_shouldReturnFalse_whenCalledWithABC() {
         String password = "ABC";
 
@@ -80,6 +81,8 @@ class PasswordValidatorTest {
 
         Assertions.assertFalse(result);
     }
+
+    @Test
     void hasUpperAndLowercaseLetters_shouldReturnFalse_whenCalledWithabc() {
         String password = "abc";
 
@@ -88,6 +91,7 @@ class PasswordValidatorTest {
         Assertions.assertFalse(result);
     }
 
+    @Test
     void hasUpperAndLowercaseLetters_shouldReturnFalse_whenCalledWithEmptyString() {
         String password = "";
 
@@ -143,5 +147,21 @@ class PasswordValidatorTest {
 
         Assertions.assertTrue(result);
     }
+    @Test
+    void containsSpecialCharacters_shouldReturnFalse_whenCalledWithBlahBlubb() {
+        String password = "BlahBlubb";
 
+        boolean result = PasswordValidator.containsSpecialCharacters(password);
+
+        Assertions.assertFalse(result);
+    }
+
+    @Test
+    void containsSpecialCharacters_shouldReturnFalse_whenCalledWithEmptyString() {
+        String password = "";
+
+        boolean result = PasswordValidator.containsSpecialCharacters(password);
+
+        Assertions.assertFalse(result);
+    }
 }
