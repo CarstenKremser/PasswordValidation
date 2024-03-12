@@ -17,4 +17,22 @@ class PasswordValidatorTest {
         Assertions.assertTrue(result);
     }
 
+    @Test
+    void hasMinimumLength_shouldReturnFalse_whenCalledWithABCDEFG() {
+        String password = "ABCDEFG";
+
+        boolean result = PasswordValidator.hasMinimumLength(password);
+
+        Assertions.assertFalse(result);
+    }
+
+    @Test
+    void hasMinimumLength_shouldReturnFalse_whenCalledWithEmptyString() {
+        String password = "";
+
+        boolean result = PasswordValidator.hasMinimumLength(password);
+
+        Assertions.assertFalse(result);
+    }
+
 }
