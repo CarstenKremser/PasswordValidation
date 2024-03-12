@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.concurrent.Callable;
+
 public class PasswordValidator {
 
 
@@ -16,7 +18,13 @@ public class PasswordValidator {
     }
 
     public static boolean hasUpperAndLowercaseLetters(String password) {
-        return false;
+        boolean uppercaseFound = false;
+        boolean lowercaseFound = false;
+        for (char c : password.toCharArray()) {
+            uppercaseFound = uppercaseFound || Character.isUpperCase(c);
+            lowercaseFound = lowercaseFound || Character.isLowerCase(c);
+        }
+        return uppercaseFound && lowercaseFound;
     }
 
     public static boolean isCommonlyUsed(String password) {
