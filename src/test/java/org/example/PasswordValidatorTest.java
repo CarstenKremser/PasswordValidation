@@ -35,4 +35,15 @@ class PasswordValidatorTest {
         Assertions.assertFalse(result);
     }
 
+    // Test containsDigits(…)
+
+    @Test
+    void containsDigits_shouldReturnTrue_whenCalledWithBlah1Blubb() {
+        String password = "Blah1Blubb";
+
+        boolean result = PasswordValidator.containsDigits(password);
+
+        Assertions.assertTrue(result);
+    }
+
 }
