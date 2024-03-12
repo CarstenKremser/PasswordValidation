@@ -61,4 +61,15 @@ class PasswordValidatorTest {
 
         Assertions.assertFalse(result);
     }
+
+    // Test hasUpperAndLowercaseLetters(…)
+
+    @Test
+    void hasUpperAndLowercaseLetters_shouldReturnTrue_whenCalledWithAbCdEfGh() {
+        String password = "AbCdEfGh";
+
+        boolean result = PasswordValidator.hasUpperAndLowercaseLetters(password);
+
+        Assertions.assertTrue(result);
+    }
 }
