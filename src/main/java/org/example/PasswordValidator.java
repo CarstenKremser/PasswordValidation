@@ -1,5 +1,7 @@
 package org.example;
 
+import org.apache.commons.lang3.RandomStringUtils;
+
 public class PasswordValidator {
 
 
@@ -58,6 +60,22 @@ public class PasswordValidator {
     }
 
     public static String createRandomSecurePassword() {
-        return "";
+        boolean isOk;
+        String password;
+        char[] mychars = ("1234567890" +
+                            "ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ" +
+                            "abcdefghijklmnopqrstuvwxyzäöü" +
+                            "#!§$%&/()=?*+'#;,:._-><@[]{}"
+                            ).toCharArray();
+        do {
+            password = RandomStringUtils.random(10,0,0,false,false, mychars);
+            System.out.println(password);
+            isOk = hasMinimumLength(password)
+                && containsDigits(password)
+                && hasUpperAndLowercaseLetters(password)
+                && containsSpecialCharacters(password)
+                && !isCommonlyUsed(password);
+        } while (!isOk);
+        return password;
     }
 }
