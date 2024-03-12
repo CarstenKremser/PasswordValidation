@@ -3,8 +3,6 @@ package org.example;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class PasswordValidatorTest {
 
     // Test hasMinimumLength(…)
@@ -46,4 +44,21 @@ class PasswordValidatorTest {
         Assertions.assertTrue(result);
     }
 
+    @Test
+    void containsDigits_shouldReturnFalse_whenCalledWithABCDE() {
+        String password = "ABCDE";
+
+        boolean result = PasswordValidator.containsDigits(password);
+
+        Assertions.assertFalse(result);
+    }
+
+    @Test
+    void containsDigits_shouldReturnFalse_whenCalledWithEmptyString() {
+        String password = "";
+
+        boolean result = PasswordValidator.containsDigits(password);
+
+        Assertions.assertFalse(result);
+    }
 }
