@@ -106,4 +106,42 @@ class PasswordValidatorTest {
 
         Assertions.assertTrue(result);
     }
+
+
+    @Test
+    void isCommonlyUsed_shouldReturnTrue_whenCalledWithAa345678() {
+        String password = "Aa345678";
+
+        boolean result = PasswordValidator.isCommonlyUsed(password);
+
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    void isCommonlyUsed_shouldReturnFalse_whenCalledWithWort1() {
+        String password = "Wort1";
+
+        boolean result = PasswordValidator.isCommonlyUsed(password);
+
+        Assertions.assertFalse(result);
+    }
+    @Test
+    void isCommonlyUsed_shouldReturnFalse_whenCalledWithEmptyString() {
+        String password = "";
+
+        boolean result = PasswordValidator.isCommonlyUsed(password);
+
+        Assertions.assertFalse(result);
+    }
+
+    // Test containsSpecialCharacters()
+    @Test
+    void containsSpecialCharacters_shouldReturnTrue_whenCalledWithBlahDollarBlubb() {
+        String password = "Blah$Blubb";
+
+        boolean result = PasswordValidator.containsSpecialCharacters(password);
+
+        Assertions.assertTrue(result);
+    }
+
 }

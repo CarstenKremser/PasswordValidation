@@ -42,4 +42,8 @@ public class PasswordValidator {
         }
         return false;
     }
+
+    public static boolean containsSpecialCharacters(String password) {
+        return false;
+    }
 }
