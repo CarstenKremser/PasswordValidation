@@ -8,7 +8,11 @@ public class PasswordValidator {
     }
 
     public static boolean containsDigits(String password) {
-        return false;
+        boolean digitFound = false;
+        for (char c : password.toCharArray()) {
+            digitFound = digitFound || Character.isDigit(c);
+        }
+        return digitFound;
     }
 
     public static boolean hasUpperAndLowercaseLetters(String password) {
