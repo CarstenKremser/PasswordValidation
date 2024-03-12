@@ -28,6 +28,18 @@ public class PasswordValidator {
     }
 
     public static boolean isCommonlyUsed(String password) {
+        String[] commonPasswords = {
+                "password", "passwort",
+                "geheim", "secret",
+                "1234", "2345", "3456", "4567", "5678", "6789", "7890",
+                "qwert", "asdf", "yxcv",
+                "uiop","hjkl"
+        };
+        for (String commonPassword : commonPasswords) {
+            if(password.toLowerCase().contains(commonPassword)) {
+                return true;
+            }
+        }
         return false;
     }
 }
