@@ -2,12 +2,12 @@ package org.example;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class PasswordValidatorTest {
 
     // Test hasMinimumLength(…)
+
     @Test
     void hasMinimumLength_shouldReturnTrue_whenCalledWithABCDEFGH() {
         String password = "ABCDEFGH";
@@ -113,7 +113,6 @@ class PasswordValidatorTest {
         Assertions.assertTrue(result);
     }
 
-
     @Test
     void isCommonlyUsed_shouldReturnTrue_whenCalledWithAa345678() {
         String password = "Aa345678";
@@ -131,6 +130,7 @@ class PasswordValidatorTest {
 
         Assertions.assertFalse(result);
     }
+
     @Test
     void isCommonlyUsed_shouldReturnFalse_whenCalledWithEmptyString() {
         String password = "";
@@ -141,6 +141,7 @@ class PasswordValidatorTest {
     }
 
     // Test containsSpecialCharacters()
+
     @Test
     void containsSpecialCharacters_shouldReturnTrue_whenCalledWithBlahDollarBlubb() {
         String password = "Blah$Blubb";
@@ -149,6 +150,7 @@ class PasswordValidatorTest {
 
         Assertions.assertTrue(result);
     }
+
     @Test
     void containsSpecialCharacters_shouldReturnFalse_whenCalledWithBlahBlubb() {
         String password = "BlahBlubb";
